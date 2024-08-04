@@ -11,8 +11,8 @@ StageScene::~StageScene()
 
 void StageScene::Init()
 {
-	player_ = new Player({ 1280/2, 720/2 }, 16, 4);
-	enemy_ = new Enemy({ 100, 300 }, 3, 16, true);
+	player_ = new Player({ 1280/2, 600 }, 64, 8);
+	enemy_ = new Enemy({ 100, 100 }, 6, 32, true);
 }
 
 void StageScene::Update(char* keys, char* preKeys)
@@ -32,6 +32,14 @@ void StageScene::Update(char* keys, char* preKeys)
 	//撃った弾と敵が当たったらクリア
 	if (distance <= r1 + r2) {
 		sceneNo = CLEAR;
+	}
+
+	float r3 = (float)player_->r_;
+	float c = player_->pos_.x - enemy_->pos_.x;
+	float d = player_->pos_.y - enemy_->pos_.y;
+	float playerToEnemy = sqrtf(c * c + d * d);
+	if (playerToEnemy <= r1 + r3) {
+		sceneNo = OVER;
 	}
 }
 

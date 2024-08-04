@@ -3,7 +3,8 @@
 enum SCENE { 
 	TITLE, //タイトル
 	STAGE, //ゲームシーン
-	CLEAR //クリア
+	CLEAR, //クリア
+	OVER//ゲームオーバー
 };
 
 class IScene {

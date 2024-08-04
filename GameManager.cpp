@@ -6,6 +6,7 @@ GameManager::GameManager()
 	sceneArr_[TITLE] = std::make_unique<TitleScene>();/*TitleSceneを実体化*/;
 	sceneArr_[STAGE] = std::make_unique<StageScene>();/*StageSceneを実体化*/;
 	sceneArr_[CLEAR] = std::make_unique<ClearScene>(); /*ClearSceneを実体化*/;
+	sceneArr_[OVER] = std::make_unique<GameOver>(); /*ClearSceneを実体化*/;
 
 	currentSceneNo_ = TITLE;
 }
